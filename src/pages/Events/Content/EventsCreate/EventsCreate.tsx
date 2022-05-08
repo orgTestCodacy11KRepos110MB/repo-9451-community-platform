@@ -264,7 +264,7 @@ export class EventsCreate extends React.Component<IProps, IState> {
               {/* post guidelines container */}
               <Flex
                 sx={{
-                  width: [1, 1, 1 / 3],
+                  width: [1, 1, `${(1 / 3) * 100}%`],
                   flexDirection: 'column',
                   height: '100%',
                 }}
@@ -287,7 +287,7 @@ export class EventsCreate extends React.Component<IProps, IState> {
                   variant={'primary'}
                   disabled={submitting}
                   data-cy="submit"
-                  sx={{ mb: ['40px', '40px', 0], minWidth: 'max-content' }}
+                  sx={{ mb: ['40px', '40px', 0] }}
                 >
                   Publish
                 </Button>
