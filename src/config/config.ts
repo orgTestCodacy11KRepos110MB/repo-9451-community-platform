@@ -152,6 +152,7 @@ export const SENTRY_CONFIG: ISentryConfig = {
     'https://8c1f7eb4892e48b18956af087bdfa3ac@sentry.io/1399729',
   ),
   environment: siteVariant,
+  release: `${window.location.hostname}@${_c('REACT_APP_PROJECT_VERSION', '')}`,
 }
 
 export const VERSION = _c('REACT_APP_PROJECT_VERSION', '')

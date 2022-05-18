@@ -11,6 +11,7 @@ export interface IFirebaseConfig {
 export interface ISentryConfig {
   dsn: string
   environment: string
+  release: string
 }
 
 declare global {
