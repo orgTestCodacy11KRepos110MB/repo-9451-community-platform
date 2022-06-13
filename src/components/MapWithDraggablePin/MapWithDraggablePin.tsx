@@ -4,7 +4,7 @@ import { Map, TileLayer, Marker, ZoomControl } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
 import { Button } from 'oa-components'
-import { Box, Flex, Text } from 'theme-ui'
+import { Box, Flex, Message, Text } from 'theme-ui'
 import customMarkerIcon from 'src/assets/icons/map-marker.png'
 import { logger } from 'src/logger'
 import styled from '@emotion/styled'
@@ -171,11 +171,9 @@ function MapWithDraggablePin(props: Props) {
           />
         </Map>
       </div>
-      <Box bg={theme.colors.softblue} mt={2} p={2} sx={{ borderRadius: '3px' }}>
-        <Text sx={{ fontSize: 1 }}>
-          You can click on the map, or drag the marker to adjust it's position.
-        </Text>
-      </Box>
+      <Message variant='info' mt={2}>
+        You can click on the map, or drag the marker to adjust it's position.
+      </Message>
     </div>
   )
 }

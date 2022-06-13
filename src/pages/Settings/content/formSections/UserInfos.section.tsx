@@ -1,9 +1,8 @@
 import * as React from 'react'
 import { Field } from 'react-final-form'
-import { Heading, Flex, Box, Text } from 'theme-ui'
+import { Heading, Flex, Box, Text, Message } from 'theme-ui'
 import { countries } from 'countries-list'
 import { Button, FieldInput, FieldTextarea } from 'oa-components'
-import theme from 'src/themes/styled.theme'
 import { FieldArray } from 'react-final-form-arrays'
 import { ProfileLinkField } from './Fields/Link.field'
 import { FlexSectionContainer } from './elements'
@@ -98,20 +97,12 @@ const CoverImages = ({
         }}
       </FieldArray>
 
-      <Box
-        bg={theme.colors.softblue}
-        mt={2}
-        p={2}
-        sx={{ width: '100%', borderRadius: '3px' }}
-      >
-        <Text sx={{ fontSize: 1 }}>
-          The cover images are shown in your profile and helps us evaluate your
-          account.
-        </Text>
-        <Text sx={{ fontSize: 1 }}>
-          Make sure the first image shows your space. Best size is 1920x1080.
-        </Text>
-      </Box>
+      <Message variant="info" mt={2}>
+        The cover images are shown in your profile and helps us evaluate your
+        account.
+        <br />
+        Make sure the first image shows your space. Best size is 1920x1080.
+      </Message>
     </>
   )
 

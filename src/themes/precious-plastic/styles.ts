@@ -10,6 +10,7 @@ import LocalComBadge from 'src/assets/images/badges/pt-local-community.svg'
 import LocalComBadgeLowDetail from 'src/assets/icons/map-community.svg'
 
 import type { ThemeWithName } from '../types'
+import { borderRadius } from 'styled-system'
 
 // use enum to specify list of possible colors for typing
 export const colors = {
@@ -304,6 +305,20 @@ const StyledComponentTheme: ThemeWithName = {
     },
   },
   maxContainerWidth,
+  messages: {
+    highlight: {
+      background: '#FDF4C5',
+      borderLeft: 'none',
+      padding: 2,
+      borderRadius: 1
+    },
+    info: {
+      background: 'softblue',
+      borderLeft: 'none',
+      padding: 2,
+      borderRadius: 1
+    }
+  },
   radii,
   regular,
   space,

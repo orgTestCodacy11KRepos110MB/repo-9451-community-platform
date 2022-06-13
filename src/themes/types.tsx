@@ -56,6 +56,8 @@ export interface ThemeWithName {
     paragraph: any
   }
 
+  messages?: any
+
   cards?: {
     primary: any
   }
