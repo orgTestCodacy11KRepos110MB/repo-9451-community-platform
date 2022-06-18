@@ -1,6 +1,7 @@
-import { createRef, useEffect, useState } from 'react'
+import { createRef, useEffect, useState, ReactNode } from 'react'
 import Linkify from 'react-linkify'
 import { Link } from 'react-router-dom'
+import reactStringReplace from 'react-string-replace';
 import { Button, EditComment, Modal } from '../index'
 import { Box, Flex, Text } from 'theme-ui'
 import { FlagIconHowTos } from '../FlagIcon/FlagIcon'
@@ -54,6 +55,15 @@ export const CommentItem = (props: Props) => {
 
   const showMore = () => {
     setShowMore(!isShowMore)
+  }
+
+  const parseMentions = (text: string): ReactNode => {
+    const regexp = /@\[id:(\w+)\]/;
+    let textWithMentions = reactStringReplace(text, regexp, (mention, i) =>{
+      const userId = mention.replace('@id[', '').replace(']', '')
+      return <Link to={'/u/' + userId} key={mention + i}>{'@' + userId}</Link>
+    });
+    return textWithMentions;
   }
 
   return (
@@ -112,7 +122,7 @@ export const CommentItem = (props: Props) => {
           }}
           ref={textRef}
         >
-          <Linkify properties={{ target: '_blank' }}>{text}</Linkify>
+          <Linkify properties={{ target: '_blank' }}>{parseMentions(text)}</Linkify>
         </Text>
         {textHeight > 129 && (
           <a

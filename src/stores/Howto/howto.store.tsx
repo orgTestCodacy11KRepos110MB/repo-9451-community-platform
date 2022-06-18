@@ -165,12 +165,28 @@ export class HowtoStore extends ModuleStore {
     return needsModeration(howto, toJS(this.activeUser))
   }
 
+  private async parseMentions(text: string): Promise<string>{
+    let mentions = text.split(' ');
+    mentions = mentions.map(w => w.trim());
+    mentions = mentions.filter(w => w.startsWith('@'));
+    for(const mention of mentions){
+        const userId = mention.replace('@', '');
+        const userProfile = await this.userStore.getUserProfile(userId);
+        if(userProfile){
+          text = text.replace(mention, `@[id:${userId}]`)
+        }
+    }
+    return text;
+  }
+
   @action
   public async addComment(text: string) {
     try {
       const user = this.activeUser
       const howto = this.activeHowto
-      const comment = text.slice(0, MAX_COMMENT_LENGTH).trim()
+      let comment = text.slice(0, MAX_COMMENT_LENGTH).trim()
+      comment =  await this.parseMentions(comment);
+      
       if (user && howto && comment) {
         const userCountry = getUserCountry(user)
         const newComment: IComment = {
