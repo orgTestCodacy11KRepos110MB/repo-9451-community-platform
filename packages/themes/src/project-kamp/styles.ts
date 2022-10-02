@@ -1,29 +1,16 @@
-import memberBadge from 'src/assets/images/themes/precious-plastic/badge-member.svg'
-import memberBadgeLowDetail from 'src/assets/icons/map-member.svg'
-import CollectionBadge from 'src/assets/images/badges/pt-collection-point.svg'
-import CollectionBadgeLowDetail from 'src/assets/icons/map-collection.svg'
-import MachineBadge from 'src/assets/images/badges/pt-machine-shop.svg'
-import MachineBadgeLowDetail from 'src/assets/icons/map-machine.svg'
-import WorkspaceBadge from 'src/assets/images/badges/pt-workspace.svg'
-import WorkspaceBadgeLowDetail from 'src/assets/icons/map-workspace.svg'
-import LocalComBadge from 'src/assets/images/badges/pt-local-community.svg'
-import LocalComBadgeLowDetail from 'src/assets/icons/map-community.svg'
-import logo from 'src/assets/images/precious-plastic-logo-official.svg'
-
-import type { ThemeWithName } from '../types'
-
-const fonts = {
-  body: `'Inter', Arial, sans-serif`,
-}
+import member from 'src/assets/images/themes/project-kamp/badge.svg'
+import memberLowDetailBadge from 'src/assets/images/themes/project-kamp/avatar.svg'
+import logo from 'src/assets/images/themes/project-kamp/project-kamp-header.png'
+import type { ThemeWithName } from '../types/types'
 
 // use enum to specify list of possible colors for typing
 export const colors = {
   white: 'white',
   offwhite: '#ececec',
   black: '#1b1b1b',
-  primary: 'red',
+  primary: 'green',
   softyellow: '#f5ede2',
-  yellow: { base: '#fee77b', hover: '#ffde45' },
+  yellow: { base: '#8ab57f', hover: 'hsl(108, 25%, 68%)' },
   blue: '#83ceeb',
   red: '#eb1b1f',
   red2: '#f58d8e',
@@ -48,6 +35,10 @@ export const zIndex = {
   logoContainer: 999,
   mapFlexBar: 2000,
   header: 3000,
+}
+
+const fonts = {
+  body: `'Inter', Arial, sans-serif`,
 }
 
 export type ButtonVariants =
@@ -226,38 +217,19 @@ const typography = {
 }
 
 const StyledComponentTheme: ThemeWithName = {
-  name: 'Precious Plastic',
-  logo: logo,
+  name: 'Project Kamp',
   profileGuidelinesURL:
     'https://drive.google.com/file/d/1fXTtBbzgCO0EL6G9__aixwqc-Euqgqnd/view',
   communityProgramURL:
     'https://community.preciousplastic.com/academy/guides/community-program',
+  logo: logo,
   alerts,
   badges: {
     member: {
-      lowDetail: memberBadgeLowDetail,
-      normal: memberBadge,
-    },
-    workspace: {
-      lowDetail: WorkspaceBadgeLowDetail,
-      normal: WorkspaceBadge,
-    },
-    'community-builder': {
-      lowDetail: LocalComBadgeLowDetail,
-      normal: LocalComBadge,
-    },
-    'collection-point': {
-      lowDetail: CollectionBadgeLowDetail,
-      normal: CollectionBadge,
-    },
-    'machine-builder': {
-      lowDetail: MachineBadgeLowDetail,
-      normal: MachineBadge,
+      lowDetail: memberLowDetailBadge,
+      normal: member,
     },
   },
-  bold,
-  breakpoints,
-  buttons,
   cards: {
     primary: {
       background: 'white',
@@ -267,14 +239,18 @@ const StyledComponentTheme: ThemeWithName = {
     },
   },
   colors,
-  fonts,
+  buttons,
+  breakpoints,
+  space,
+  radii,
   fontSizes,
+  fonts,
   forms: {
     input: {
       background: colors.background,
       borderRadius: 1,
       border: '1px solid transparent',
-      fontFamily: fonts.body,
+      fontFamily: `'Inter', Arial, sans-serif`,
       fontSize: 1,
       '&:focus': {
         borderColor: colors.blue,
@@ -332,9 +308,8 @@ const StyledComponentTheme: ThemeWithName = {
     },
   },
   maxContainerWidth,
-  radii,
   regular,
-  space,
+  bold,
   text: {
     heading: {
       fontFamily: '"Varela Round", Arial, sans-serif',

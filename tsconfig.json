@@ -29,7 +29,7 @@
     "noFallthroughCasesInSwitch": true,
     "useUnknownInCatchVariables": false
   },
-  "include": ["src/**/*", "types"],
+  "include": ["src/**/*", "types", "packages/themes/src/fixing-fashion"],
   "exclude": [
     "node_modules",
     "build",

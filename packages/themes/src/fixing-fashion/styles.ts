@@ -1,4 +1,4 @@
-import type { ThemeWithName } from '../types'
+import type { ThemeWithName } from '../types/types'
 import spaceBadge from 'src/assets/images/themes/fixing-fashion/badge_space.svg'
 import spaceBadgeLow from 'src/assets/images/themes/fixing-fashion/avatar_space.svg'
 import memberLow from 'src/assets/images/themes/fixing-fashion/avatar.svg'

@@ -1,4 +1,13 @@
-import type { ProfileTypeLabel } from 'src/modules/profile'
+const ProfileType = {
+  MEMBER: 'member',
+  SPACE: 'space',
+  WORKSPACE: 'workspace',
+  MACHINE_BUILDER: 'machine-builder',
+  COMMUNITY_BUILDER: 'community-builder',
+  COLLECTION_POINT: 'collection-point',
+} as const
+
+type ProfileTypeLabel = typeof ProfileType[keyof typeof ProfileType]
 
 interface LinkList {
   label: string

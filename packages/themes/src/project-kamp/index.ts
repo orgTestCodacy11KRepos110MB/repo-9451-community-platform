@@ -1,4 +1,4 @@
-import type { PlatformTheme } from '../types'
+import type { PlatformTheme } from '../types/types'
 import logo from 'src/assets/images/themes/project-kamp/project-kamp-header.png'
 import badge from 'src/assets/images/themes/project-kamp/badge.svg'
 import avatar from 'src/assets/images/themes/project-kamp/avatar.svg'

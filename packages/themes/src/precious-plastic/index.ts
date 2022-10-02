@@ -1,7 +1,7 @@
-import logo from 'src/assets/images/precious-plastic-logo-official.svg'
-import badge from 'src/assets/images/themes/precious-plastic/badge-member.svg'
+import logo from '../assets/images/precious-plastic-logo-official.svg'
+import badge from '../assets/images/badge-member.svg'
 import { THEME_LIST } from '..'
-import type { PlatformTheme } from '../types'
+import type { PlatformTheme } from '../types/types'
 import styles from './styles'
 
 const Theme: PlatformTheme = {

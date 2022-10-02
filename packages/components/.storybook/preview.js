@@ -3,11 +3,12 @@ import { addDecorator } from '@storybook/react'
 import { withThemes } from '@react-theming/storybook-addon'
 
 import { Global } from '@emotion/react'
-import { GlobalStyle } from '../../../src/themes/app.globalStyles'
-
-import preciousPlasticTheme from '../../../src/themes/precious-plastic/styles'
-import projectKampTheme from '../../../src/themes/project-kamp/styles'
-import fixingFashionTheme from '../../../src/themes/fixing-fashion/styles'
+import {
+  GlobalStyle,
+  preciousPlasticTheme,
+  projectKampTheme,
+  fixingFashionTheme,
+} from 'oa-themes'
 
 import { MemoryRouter } from 'react-router-dom'
 

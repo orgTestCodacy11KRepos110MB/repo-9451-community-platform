@@ -1,4 +1,4 @@
-import type { PlatformTheme } from '../types'
+import type { PlatformTheme } from '../types/types'
 import logo from 'src/assets/images/themes/fixing-fashion/fixing-fashion-header.png'
 import badge from 'src/assets/images/themes/fixing-fashion/badge.svg'
 import avatar from 'src/assets/images/themes/fixing-fashion/avatar.svg'
