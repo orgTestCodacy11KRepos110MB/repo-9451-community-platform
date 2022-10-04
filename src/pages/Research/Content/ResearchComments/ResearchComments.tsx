@@ -18,8 +18,6 @@ interface IProps {
 
 const BoxMain = styled(Box)`
   padding-bottom: 15px;
-  margin-left: 20px;
-  margin-right: 20px;
   margin-top: 20px;
 `
 
@@ -138,7 +136,6 @@ export const ResearchComments = ({ comments, update, updateIndex }: IProps) => {
       paddingLeft={viewComments ? '25px' : '0'}
       paddingRight={viewComments ? '25px' : '0'}
       backgroundColor={viewComments ? '#e2edf7' : 'inherit'}
-      marginBottom={viewComments ? '20px' : '0'}
     >
       <Button
         variant="subtle"
