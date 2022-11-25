@@ -153,7 +153,27 @@ const ResearchDescription: React.FC<IProps> = ({
           <Text sx={{ whiteSpace: 'pre-line', ...theme.typography.paragraph }}>
             <LinkifyText>{research.description}</LinkifyText>
           </Text>
+          {research['collaborators'].length && (
+            <Box mt={2}>
+              Contributions from:
+              {research['collaborators']
+                .split(',')
+                .map((collaborator: string, idx: number) => (
+                  <>
+                    <Username
+                      key={idx}
+                      user={{
+                        userName: collaborator,
+                        countryCode: null,
+                      }}
+                      isVerified={false}
+                    />
+                  </>
+                ))}
+            </Box>
+          )}
         </Box>
+        {/* {JSON.stringify(research)}; */}
       </Flex>
       {research.moderation !== 'accepted' && (
         <ModerationStatus

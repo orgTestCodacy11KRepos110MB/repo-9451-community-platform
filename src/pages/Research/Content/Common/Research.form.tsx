@@ -5,7 +5,7 @@ import * as React from 'react'
 import { Field, Form } from 'react-final-form'
 import type { RouteComponentProps } from 'react-router'
 import { Prompt } from 'react-router'
-import { Box, Card, Flex, Heading } from 'theme-ui'
+import { Box, Card, Flex, Heading, Text } from 'theme-ui'
 import IconHeaderHowto from 'src/assets/images/header-section/howto-header-icon.svg'
 import {
   Button,
@@ -229,6 +229,19 @@ const ResearchForm = observer((props: IProps) => {
                                 category="research"
                                 isEqual={COMPARISONS.tags}
                               />
+                            </Flex>
+                            <Flex sx={{ flexDirection: 'column' }} mb={3}>
+                              <Label>
+                                Who have you been collaboratoring on this
+                                Research with?
+                              </Label>
+                              <Field
+                                name="collaborators"
+                                component={FieldInput}
+                              />
+                              <Text sx={{ fontSize: 1, marginTop: 2 }}>
+                                A comma separated list of usernames.
+                              </Text>
                             </Flex>
                           </Flex>
                         </Flex>

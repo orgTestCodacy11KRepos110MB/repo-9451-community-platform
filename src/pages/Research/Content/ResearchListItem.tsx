@@ -80,6 +80,20 @@ const ResearchListItem: React.FC<IProps> = ({ item }) => {
                     }}
                     isVerified={isUserVerified(item._createdBy)}
                   />
+                  {item['collaborators']?.length && (
+                    <Text
+                      ml={4}
+                      sx={{
+                        display: ['none', 'block'],
+                        fontSize: theme.fontSizes[1] + 'px',
+                        color: theme.colors.darkGrey,
+                        transform: 'translateY(2px)',
+                      }}
+                    >
+                      {item['collaborators'].split(',')?.length +
+                        ' contributors'}
+                    </Text>
+                  )}
                   {/* Hide this on mobile, show on tablet & above. */}
                   <Text
                     ml={4}
