@@ -232,8 +232,8 @@ const ResearchForm = observer((props: IProps) => {
                             </Flex>
                             <Flex sx={{ flexDirection: 'column' }} mb={3}>
                               <Label>
-                                Who have you been collaboratoring on this
-                                Research with?
+                                Who have you been collaborating on this Research
+                                with?
                               </Label>
                               <Field
                                 name="collaborators"

@@ -38,7 +38,10 @@ export namespace IResearch {
 
   /** Research items synced from the database will contain additional metadata */
   // Use of Omit to override the 'updates' type to UpdateDB
-  export type ItemDB = Omit<Item, 'updates'> & { updates: UpdateDB[] } & DBDoc
+  export type ItemDB = Omit<Item, 'updates'> & {
+    updates: UpdateDB[]
+    collaborators?: string
+  } & DBDoc
 
   export type UpdateDB = Update & DBDoc
 }

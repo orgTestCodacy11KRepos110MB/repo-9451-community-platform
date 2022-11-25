@@ -97,6 +97,7 @@ export class ResearchStore extends ModuleStore {
       runInAction(() => {
         this.activeResearchItem = {
           ...researchItem,
+          collaborators: researchItem.collaborators || '',
           description: changeUserReferenceToPlainText(researchItem.description),
           updates: researchItem.updates?.map((update) => {
             update.description = changeUserReferenceToPlainText(

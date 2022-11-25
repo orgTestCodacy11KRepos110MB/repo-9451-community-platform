@@ -150,6 +150,7 @@ function transformToUserComment(
   comments: IComment[],
   loggedInUsername,
 ): UserComment[] {
+  if (!comments) return []
   return comments.map((c) => ({
     ...c,
     isEditable: c.creatorName === loggedInUsername,
