@@ -7,8 +7,8 @@ import { useResearchStore } from 'src/stores/Research/research.store'
 import { useTheme } from '@emotion/react'
 import { Link } from 'react-router-dom'
 import styled from '@emotion/styled'
-import theme from 'src/themes/styled.theme'
-import { useCommonStores } from 'src'
+import theme from '../../../themes/styled.theme'
+import { useCommonStores } from '../../../index'
 
 const ResearchListHeader = styled.header`
   display: grid;
