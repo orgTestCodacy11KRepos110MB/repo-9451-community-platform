@@ -3,7 +3,7 @@ import { components } from 'react-select'
 import { Flex, Text } from 'theme-ui'
 
 // https://github.com/JedWatson/react-select/issues/685#issuecomment-420213835
-export const Option = (
+export const SelectOption = (
   props: OptionProps & {
     data: {
       imageElement: string

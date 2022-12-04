@@ -1,24 +1,18 @@
 import ReactSelect from 'react-select'
-import type {
-  GetOptionLabel,
-  GetOptionValue,
-  StylesConfig,
-  Props as ReactSelectProps,
-} from 'react-select'
+import type { GroupBase, StylesConfig, Props } from 'react-select'
 import { useTheme } from '@emotion/react'
 import { DropdownIndicator } from './DropdownIndicator'
-import { Option } from './Option'
+import { SelectOption } from './Option'
 
-export interface Props extends ReactSelectProps {
-  placeholder?: string
-  isMulti?: boolean
-  isClearable?: boolean
-  getOptionLabel?: GetOptionLabel<unknown>
-  getOptionValue?: GetOptionValue<unknown>
-  variant?: 'form' | 'icons'
-}
-
-export const Select = (props: Props) => {
+export const Select = <
+  Option,
+  IsMulti extends boolean = false,
+  Group extends GroupBase<Option> = GroupBase<Option>,
+>(
+  props: Props<Option, IsMulti, Group> & {
+    variant?: string
+  },
+) => {
   /**
    * TODO: Use type exported by Platform themes.
    */
@@ -35,7 +29,7 @@ export const Select = (props: Props) => {
     }
   }
 
-  const SelectStyles: Partial<StylesConfig> = {
+  const SelectStyles: StylesConfig = {
     container: (provided) => ({
       ...provided,
       fontSize: theme.fontSizes[2] + 'px',
@@ -100,7 +94,7 @@ export const Select = (props: Props) => {
     }),
   }
 
-  const FilterStyles: Partial<StylesConfig> = {
+  const FilterStyles: StylesConfig = {
     container: (provided) => ({
       ...provided,
       fontSize: theme.fontSizes[2] + 'px',
@@ -171,16 +165,10 @@ export const Select = (props: Props) => {
   return (
     <ReactSelect
       classNamePrefix={'data-cy'}
-      components={{ DropdownIndicator, Option }}
-      defaultValue={props.defaultValue}
-      getOptionLabel={props.getOptionLabel && props.getOptionLabel}
-      getOptionValue={props.getOptionValue && props.getOptionValue}
-      isClearable={!!props.isClearable}
-      isMulti={!!props.isMulti}
-      placeholder={props.placeholder}
+      components={{ DropdownIndicator, Option: SelectOption }}
+      {...props}
       styles={props.variant === 'form' ? SelectStyles : FilterStyles}
       options={options}
-      onChange={(v) => props.onChange && props.onChange(v)}
       value={props.value}
     />
   )
