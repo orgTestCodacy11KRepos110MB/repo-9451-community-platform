@@ -8,7 +8,7 @@ export interface Props {
   placeholder?: string
   debounceMs?: number
   iconUrl?: string
-  callback?: any
+  callback?: (result: Result) => void
   city?: string
   countrycodes?: string
   acceptLanguage?: string
@@ -139,9 +139,10 @@ export const OsmGeocoding = ({
             if (result) {
               setQueryLocationService(false)
               setSearchValue(result.display_name)
+              if (callback) {
+                callback(result)
+              }
             }
-
-            callback(result)
           }}
           setShowResults={setShowResults}
         />

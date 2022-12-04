@@ -9,6 +9,7 @@ type FieldProps = FieldRenderProps<unknown, HTMLElement>
 
 export interface Props extends FieldProps {
   // additional fields intending to pass down
+  value: string | number | readonly string[] | undefined
   disabled?: boolean
   children?: React.ReactNode
   'data-cy'?: string

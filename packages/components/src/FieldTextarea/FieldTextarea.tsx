@@ -1,20 +1,32 @@
+import type { ChangeEvent } from 'react'
 import type { FieldRenderProps } from 'react-final-form'
 
-type FieldProps = FieldRenderProps<any, any> & { children?: React.ReactNode }
+type FieldProps = FieldRenderProps<unknown, HTMLTextAreaElement> & {
+  children?: React.ReactNode
+}
+
 export interface Props extends FieldProps {
   // additional fields intending to pass down
+  value: string
   disabled?: boolean
   children?: React.ReactNode
   'data-cy'?: string
-  customOnBlur?: (event: any) => void
+  customOnBlur?: (event: ChangeEvent) => void
 }
 
 import { Textarea, Text } from 'theme-ui'
 
+type InputModifiers = {
+  capitalize?: boolean
+}
+
 const capitalizeFirstLetter = (str: string) =>
   str.charAt(0).toUpperCase() + str.slice(1)
 
-const processInputModifiers = (value: any, modifiers: any = {}) => {
+const processInputModifiers = (
+  value: string,
+  modifiers: InputModifiers = {},
+) => {
   if (typeof value !== 'string') return value
   if (modifiers.capitalize) {
     value = capitalizeFirstLetter(value)

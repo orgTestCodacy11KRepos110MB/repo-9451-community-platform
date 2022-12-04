@@ -1,6 +1,7 @@
 import ReactSelect from 'react-select'
 import type {
-  OptionsOrGroups,
+  GetOptionLabel,
+  GetOptionValue,
   StylesConfig,
   Props as ReactSelectProps,
 } from 'react-select'
@@ -9,21 +10,30 @@ import { DropdownIndicator } from './DropdownIndicator'
 import { Option } from './Option'
 
 export interface Props extends ReactSelectProps {
-  options: OptionsOrGroups<any, any>
-  value?: any
-  onChange?: any
   placeholder?: string
   isMulti?: boolean
   isClearable?: boolean
-  getOptionLabel?: any
-  getOptionValue?: any
-  defaultValue?: any
+  getOptionLabel?: GetOptionLabel<unknown>
+  getOptionValue?: GetOptionValue<unknown>
   variant?: 'form' | 'icons'
-  components?: any
 }
 
 export const Select = (props: Props) => {
-  const theme: any = useTheme()
+  /**
+   * TODO: Use type exported by Platform themes.
+   */
+  const theme = useTheme() as {
+    fontSizes: number[]
+    colors: {
+      softblue: string
+      background: string
+      blue: string
+      black: string
+      white: string
+      softgrey: string
+      grey: string
+    }
+  }
 
   const SelectStyles: Partial<StylesConfig> = {
     container: (provided) => ({
@@ -157,7 +167,7 @@ export const Select = (props: Props) => {
     }),
   }
 
-  const options: OptionsOrGroups<any, any> | undefined = props.options || []
+  const options = props.options || []
   return (
     <ReactSelect
       classNamePrefix={'data-cy'}

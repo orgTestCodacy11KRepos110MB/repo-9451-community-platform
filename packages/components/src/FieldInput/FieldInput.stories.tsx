@@ -1,5 +1,6 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react'
 import { FieldInput } from './FieldInput'
+import { Field, Form } from 'react-final-form'
 
 export default {
   title: 'Components/FieldInput',
@@ -7,13 +8,15 @@ export default {
 } as ComponentMeta<typeof FieldInput>
 
 export const Default: ComponentStory<typeof FieldInput> = () => (
-  <FieldInput placeholder="Input placeholder" meta={{}} input={{} as any} />
+  <Form
+    onSubmit={(v) => console.log(v)}
+    render={() => <Field name="default" component={FieldInput} />}
+  />
 )
 
 export const WithError: ComponentStory<typeof FieldInput> = () => (
-  <FieldInput
-    placeholder="Text area input"
-    input={{} as any}
-    meta={{ error: 'What an error', touched: true }}
+  <Form
+    onSubmit={(v) => console.log(v)}
+    render={() => <Field name="default" component={FieldInput} />}
   />
 )

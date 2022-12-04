@@ -1,14 +1,18 @@
+import type { ChangeEvent } from 'react'
 import type { FieldRenderProps } from 'react-final-form'
 import { Text, Input } from 'theme-ui'
 
-type FieldProps = FieldRenderProps<any, any> & { children?: React.ReactNode }
+type FieldProps = FieldRenderProps<unknown, HTMLElement> & {
+  children?: React.ReactNode
+}
 
 export interface Props extends FieldProps {
   // additional fields intending to pass down
+  value: string | number | readonly string[] | undefined
   disabled?: boolean
   children?: React.ReactNode
   'data-cy'?: string
-  customOnBlur?: (event: any) => void
+  customOnBlur?: (event: ChangeEvent) => void
 }
 
 type InputModifiers = {
@@ -18,7 +22,10 @@ type InputModifiers = {
 const capitalizeFirstLetter = (str: string) =>
   str.charAt(0).toUpperCase() + str.slice(1)
 
-const processInputModifiers = (value: any, modifiers: InputModifiers = {}) => {
+const processInputModifiers = (
+  value: string,
+  modifiers: InputModifiers = {},
+) => {
   if (typeof value !== 'string') return value
   if (modifiers.capitalize) {
     value = capitalizeFirstLetter(value)

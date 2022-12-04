@@ -19,16 +19,9 @@ export const LocationSearchField = ({
           callback={async (data) => {
             logger.debug(data, 'LocationSearch.field.ReactOsmGeocoding')
             if (data.lat && data.lon) {
-              // onPositionChanged({
-              // lat: data.lat,
-              // lng: data.lon,
-              // })
-              // setCenter([data.lat, data.lon])
-              // setZoom(15)
-
               const location = await getLocationData({
-                lat: data.lat,
-                lng: data.lon,
+                lat: parseFloat(data.lat),
+                lng: parseFloat(data.lon),
               })
 
               input.onChange(location)

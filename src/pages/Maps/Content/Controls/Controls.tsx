@@ -92,8 +92,8 @@ class Controls extends React.Component<IProps, IState> {
               logger.debug(data, 'Map.Content.Controls.ReactOsmGeocoding')
               if (data.lat && data.lon) {
                 this.props.onLocationChange({
-                  lat: data.lat,
-                  lng: data.lon,
+                  lat: parseFloat(data.lat),
+                  lng: parseFloat(data.lon),
                 })
               }
             }}

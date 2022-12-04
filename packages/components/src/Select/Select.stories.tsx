@@ -27,7 +27,7 @@ export const Default: ComponentStory<typeof Select> = () => {
 }
 
 export const Clearable: ComponentStory<typeof Select> = () => {
-  const [value, setValue] = useState()
+  const [value, setValue] = useState<unknown>()
   return (
     <Select
       value={value}
@@ -49,7 +49,7 @@ export const Clearable: ComponentStory<typeof Select> = () => {
 }
 
 export const MultipleSelect: ComponentStory<typeof Select> = () => {
-  const [value, setValue] = useState([
+  const [value, setValue] = useState<unknown>([
     {
       value: 'value-three',
       label: 'Value 3',
@@ -81,7 +81,7 @@ export const MultipleSelect: ComponentStory<typeof Select> = () => {
 }
 
 export const FormSelect: ComponentStory<typeof Select> = () => {
-  const [value, setValue] = useState()
+  const [value, setValue] = useState<unknown>()
   return (
     <Select
       variant="form"
@@ -104,7 +104,7 @@ export const FormSelect: ComponentStory<typeof Select> = () => {
 }
 
 export const SelectWithIcons: ComponentStory<typeof Select> = () => {
-  const [value, setValue] = useState()
+  const [value, setValue] = useState<unknown>()
   return (
     <Select
       variant="icons"

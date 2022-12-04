@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { Box, Card, Text } from 'theme-ui'
+import type { ThemeUIStyleObject } from 'theme-ui'
 import { Button } from '../Button/Button'
 import { NotificationItem } from '../NotificationItem/NotificationItem'
 import type { NotificationItemProps as Notification } from '../NotificationItem/NotificationItem'
@@ -8,7 +9,7 @@ export type UserNotificationList = Notification[]
 
 export interface Props {
   notifications: Notification[]
-  sx?: any
+  sx?: ThemeUIStyleObject
   handleOnClick?: () => void
 }
 
@@ -31,7 +32,7 @@ export const NotificationList = (props: Props) => {
         <>
           <ModalItem style={{ textAlign: 'center' }}>Notifications</ModalItem>
           {notifications.map((notification, idx) => (
-            <NotificationItem key={idx} {...(notification as any)} />
+            <NotificationItem key={idx} {...notification} />
           ))}
           <Button
             style={{

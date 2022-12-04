@@ -12,7 +12,9 @@ export interface Props extends ImageProps {
 const MINIMUM_SIZE = 40
 
 export const MemberBadge = (props: Props) => {
-  const theme: any = useTheme()
+  const theme = useTheme() as {
+    badges: Record<typeof profileType, { normal: string; lowDetail: string }>
+  }
   const { size, style, useLowDetailVersion } = props
   const profileType = props.profileType || 'member'
   const badgeSize = size ? size : MINIMUM_SIZE

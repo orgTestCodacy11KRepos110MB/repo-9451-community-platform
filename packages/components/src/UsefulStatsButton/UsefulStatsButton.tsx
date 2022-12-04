@@ -3,7 +3,6 @@ import { Text } from 'theme-ui'
 import { Button, Icon, ExternalLink } from '../'
 import ReactTooltip from 'react-tooltip'
 import styled from '@emotion/styled'
-import { useTheme } from '@emotion/react'
 
 const StyledTooltip = styled(ReactTooltip)`
   opacity: 1 !important;
@@ -29,8 +28,6 @@ export interface IProps {
 }
 
 export const UsefulStatsButton = (props: IProps) => {
-  const theme: any = useTheme()
-
   const [votedUsefulCount, setVotedUsefulCount] = useState<number>()
   const [hasUserVotedUseful, setHasUserVotedUseful] = useState<boolean>()
 
@@ -52,7 +49,7 @@ export const UsefulStatsButton = (props: IProps) => {
         data-cy="vote-useful"
         variant="subtle"
         onClick={handleUsefulClick}
-        sx={{ fontSize: 2, ml: 1, background: theme.colors.softyellow }}
+        sx={{ fontSize: 2, ml: 1, background: 'softyellow' }}
         icon={hasUserVotedUseful ? 'star-active' : 'star'}
       >
         <Text ml={1}>Useful {votedUsefulCount ? votedUsefulCount : ''}</Text>
@@ -65,17 +62,18 @@ export const UsefulStatsButton = (props: IProps) => {
         data-cy="vote-useful-redirect"
         data-tip={'Login to add your vote'}
         sx={{
-          ...theme.buttons.subtle,
-          background: theme.colors.softyellow,
+          borderRadius: 1,
+          color: 'black',
+          background: 'softyellow',
           display: 'inline-flex',
           fontSize: 2,
           paddingY: 2,
           paddingX: 3,
-          ml: 2,
+          ml: 1,
         }}
       >
         <Icon glyph={hasUserVotedUseful ? 'star-active' : 'star'} />
-        <Text ml={2}>Useful {votedUsefulCount ? votedUsefulCount : ''}</Text>
+        <Text ml={1}>Useful {votedUsefulCount ? votedUsefulCount : ''}</Text>
       </ExternalLink>
       <Tooltip />
     </>

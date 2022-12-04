@@ -8,7 +8,13 @@ import WhiteBubble2 from 'src/assets/images/white-bubble_2.svg'
 import WhiteBubble3 from 'src/assets/images/white-bubble_3.svg'
 
 export const MoreContainer = (props: BoxProps) => {
-  const theme = useTheme() as any
+  const theme = useTheme() as {
+    zIndex: {
+      behind: number
+    }
+    breakpoints: string[]
+  }
+
   const MoreModalContainer = styled(Box)`
     position: relative;
     max-width: 780px;
@@ -45,9 +51,5 @@ export const MoreContainer = (props: BoxProps) => {
       }
     }
   `
-  return (
-    <MoreModalContainer {...(props as any)}>
-      {props.children}
-    </MoreModalContainer>
-  )
+  return <MoreModalContainer {...props}>{props.children}</MoreModalContainer>
 }

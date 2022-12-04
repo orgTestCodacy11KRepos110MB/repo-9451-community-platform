@@ -18,7 +18,7 @@ const RotatingLogo = styled(Image)`
 `
 
 export const Loader = () => {
-  const theme = useTheme() as any
+  const theme = useTheme() as { logo: string }
   const logo = theme.logo || null
 
   return (
