@@ -4,7 +4,7 @@ import type { INotification } from 'src/models'
 import type { UserNotificationsStore } from 'src/stores/User/notifications.store'
 import { Box } from 'theme-ui'
 
-function getFormattedMessage(notification: INotification) {
+export function getFormattedMessage(notification: INotification) {
   switch (notification.type) {
     case 'new_comment':
       return (
