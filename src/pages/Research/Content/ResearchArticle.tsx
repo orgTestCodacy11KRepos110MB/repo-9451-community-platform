@@ -16,6 +16,20 @@ import type { IUploadedFileMeta } from 'src/stores/storage'
 
 type IProps = RouteComponentProps<{ slug: string }>
 
+function areCommentVisible(updateIndex) {
+  let showComments = false
+
+  if (new RegExp(/#update-\d-comment/).test(window.location.hash)) {
+    const match = window.location.hash.match(/#update-\d/)
+    if (match) {
+      showComments =
+        updateIndex === parseInt(match[0].replace('#update-', ''), 10)
+    }
+  }
+
+  return showComments
+}
+
 const ResearchArticle = observer((props: IProps) => {
   const researchStore = useResearchStore()
   const { userStore, aggregationsStore } = useCommonStores().stores
@@ -114,21 +128,20 @@ const ResearchArticle = observer((props: IProps) => {
         />
         <Box my={16}>
           {item &&
-            item?.updates?.map((update, index) => {
-              return (
-                <ResearchUpdate
-                  update={update}
-                  key={update._id}
-                  updateIndex={index}
-                  isEditable={isEditable}
-                  slug={item.slug}
-                  comments={transformToUserComment(
-                    researchStore.getActiveResearchUpdateComments(index),
-                    loggedInUser?.userName,
-                  )}
-                />
-              )
-            })}
+            item?.updates?.map((update, index) => (
+              <ResearchUpdate
+                update={update}
+                key={update._id}
+                updateIndex={index}
+                isEditable={isEditable}
+                slug={item.slug}
+                comments={transformToUserComment(
+                  researchStore.getActiveResearchUpdateComments(index),
+                  loggedInUser?.userName,
+                )}
+                showComments={areCommentVisible(index)}
+              />
+            ))}
         </Box>
         {isEditable && (
           <Flex my={4}>
