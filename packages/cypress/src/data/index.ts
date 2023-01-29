@@ -7,7 +7,7 @@
  * ```
  * or
  * ```
- * import * as MOCK_DATA from '../data
+ * import { MOCK_DATA } from '../data
  * ```
  *
  **/
@@ -21,6 +21,8 @@ import {
   tags,
   users,
 } from 'oa-shared/mocks/data'
+
+export { howtos, users } from 'oa-shared/mocks/data'
 
 export const MOCK_DATA = {
   categories,
