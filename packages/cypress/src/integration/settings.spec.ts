@@ -500,6 +500,7 @@ describe('[Settings]', () => {
     })
   })
 
+  // eslint-disable-next-line mocha/no-skipped-tests
   describe.skip('Focus Plastic Collection Point', () => {
     const freshSettings = {
       _authID: 'uxupeYR7glagQyhBy8q0blr0chd2',
